@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/EntityFrameworkCoreExamples/EFCoreCodeFirst.csproj"
+                "${workspaceFolder}/CodeFirst/CodeFirst.csproj"
             ],
             "problemMatcher": "$msCompile"
         }

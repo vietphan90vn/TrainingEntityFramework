@@ -5,14 +5,28 @@
    "version": "0.2.0",
    "configurations": [
         {
-            "name": ".NET Core Launch (console)",
+            "name": ".Net Code First Launch (Console)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/EntityFrameworkCoreExamples/bin/Debug/netcoreapp2.1/EFCoreCodeFirst.dll",
+            "program": "${workspaceFolder}/CodeFirst/bin/Debug/netcoreapp2.1/CodeFirst.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/EntityFrameworkCoreExamples",
+            "cwd": "${workspaceFolder}/CodeFirst",
+            // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
+            "console": "internalConsole",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart"
+		},
+		{
+            "name": ".Net Database First Launch (Console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/DatabaseFirst/bin/Debug/netcoreapp2.1/DatabaseFirst.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/DatabaseFirst",
             // For more information about the 'console' field, see https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md#console-terminal-window
             "console": "internalConsole",
             "stopAtEntry": false,
