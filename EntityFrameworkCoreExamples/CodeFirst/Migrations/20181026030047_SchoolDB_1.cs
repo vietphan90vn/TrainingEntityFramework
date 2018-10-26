@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CodeFirst.Migrations
 {
-    public partial class CreateSchoolDB2 : Migration
+    public partial class SchoolDB_1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

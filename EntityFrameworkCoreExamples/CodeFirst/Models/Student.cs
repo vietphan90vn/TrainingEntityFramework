@@ -1,4 +1,4 @@
-namespace CodeFirst
+namespace CodeFirst.Models
 {
 	public class Student
 	{
