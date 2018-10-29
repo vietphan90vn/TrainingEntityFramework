@@ -22,7 +22,6 @@ namespace CodeFirst
 
 				studentName.ForEach(Console.WriteLine);
 			}
-
         }
     }
 }

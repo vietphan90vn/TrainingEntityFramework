@@ -22,6 +22,18 @@ namespace DatabaseFirst
 			studentNames.ForEach(Console.WriteLine);
 			var course = studentWithRowVersion.SelectMany(s => s.RowVersion).ToList();
 			course.ForEach(b => Console.WriteLine(b));
+
+			// Eager loading
+			using (var context2 = new SchoolDBContext())
+			{
+				var student = context2.Student
+					//.Include(std => std.StudentAddress)
+					.Include(std => std.StudentCourse)
+						.ThenInclude(c => c.Course)
+					.ToList();
+
+				Console.WriteLine(student);
+			}
 		}
     }
 }

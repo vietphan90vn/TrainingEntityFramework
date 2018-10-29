@@ -10,6 +10,16 @@
                 "${workspaceFolder}/CodeFirst/CodeFirst.csproj"
             ],
             "problemMatcher": "$msCompile"
+		},
+		{
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/DatabaseFirst/DatabaseFirst.csproj"
+            ],
+            "problemMatcher": "$msCompile"
         }
     ]
 }
