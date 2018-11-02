@@ -38,20 +38,58 @@ namespace DatabaseFirst
 
 			//Explicit load
 			Console.WriteLine("========Explicit load=========");
+
+			// This allows you to do things such as running an aggregate operator over the
+			// related entities without loading them into memory.
 			using (var context3 = new SchoolDBContext())
 			{
 				var student = context3.Student
 					.Single(s => s.StudentName.Contains("B"));
 
-				Console.WriteLine(student.StudentName);
+				var result = context3.Entry(student)
+					.Reference(s => s.Standard)
+					.Query()
+					.FirstOrDefault();
+
+				Console.WriteLine(result.StandardName);
+			}
+
+			// You can also filter which related entities are loaded into memory.
+			using (var context3 = new SchoolDBContext())
+			{
+				var student = context3.Student
+					.Single(s => s.StudentName.Contains("B"));
 
 				var result = context3.Entry(student)
-					.Collection(s => s.StudentCourse)
+					.Reference(s => s.StudentAddress)
 					.Query()
+					.Select(address => address.City)
 					.ToList();
 
-				result.ForEach(a => Console.WriteLine(a.Course));
+				Console.WriteLine(result.FirstOrDefault());
+			}
 
+			// Lazy load: support EF Core 2.1 or higher
+
+			// Add - remove student
+			using (var context3 = new SchoolDBContext())
+			{
+				// Add student
+				//var std = new Student() {StudentName = "New name"};
+				// context3.Student.
+				// context3.Student.Add(std);
+				// context3.SaveChangesAsync().Wait();
+
+				// Remove student
+				var stds = context3.Student.Where(s => s.StudentName.Equals("New name"));
+				context3.RemoveRange(stds);
+				context3.SaveChangesAsync().Wait();
+
+				// Show students
+				context3.Student
+					.Select(s => string.Concat(s.StudentId, ":", s.StudentName))
+					.ToList()
+					.ForEach(Console.WriteLine);
 			}
 		}
     }
