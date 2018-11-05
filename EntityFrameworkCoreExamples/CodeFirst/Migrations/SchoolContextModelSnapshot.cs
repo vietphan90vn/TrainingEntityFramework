@@ -18,7 +18,7 @@ namespace CodeFirst.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CodeFirst.Course", b =>
+            modelBuilder.Entity("CodeFirst.Models.Course", b =>
                 {
                     b.Property<int>("CourseId")
                         .ValueGeneratedOnAdd()
@@ -31,13 +31,15 @@ namespace CodeFirst.Migrations
                     b.ToTable("Courses");
                 });
 
-            modelBuilder.Entity("CodeFirst.Student", b =>
+            modelBuilder.Entity("CodeFirst.Models.Student", b =>
                 {
                     b.Property<int>("StudentId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name");
+
+                    b.Property<string>("StudentAddress");
 
                     b.HasKey("StudentId");
 
