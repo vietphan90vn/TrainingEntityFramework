@@ -46,12 +46,17 @@ namespace DatabaseFirst
 				var student = context3.Student
 					.Single(s => s.StudentName.Contains("B"));
 
-				var result = context3.Entry(student)
+				// Load single navigation property
+				context3.Entry(student)
 					.Reference(s => s.Standard)
-					.Query()
-					.FirstOrDefault();
+					.Load();
 
-				Console.WriteLine(result.StandardName);
+				// Load collection navigation property
+				context3.Entry(student)
+					.Collection(s => s.StudentCourse)
+					.Load();
+
+				Console.WriteLine(student.Standard.StandardName);
 			}
 
 			// You can also filter which related entities are loaded into memory.
