@@ -33,7 +33,7 @@ namespace DatabaseFirst
 						.ThenInclude(c => c.Course)
 					.ToList();
 
-				Console.WriteLine(student);
+				Console.WriteLine(student.Count);
 			}
 
 			//Explicit load
@@ -74,28 +74,10 @@ namespace DatabaseFirst
 				Console.WriteLine(result.FirstOrDefault());
 			}
 
-			// Lazy load: support EF Core 2.1 or higher
+			SavingData.AddingData();
+			SavingData.UpdatingData();
+			SavingData.DeletingData();
 
-			// Add - remove student
-			using (var context3 = new SchoolDBContext())
-			{
-				// Add student
-				//var std = new Student() {StudentName = "New name"};
-				// context3.Student.
-				// context3.Student.Add(std);
-				// context3.SaveChangesAsync().Wait();
-
-				// Remove student
-				var stds = context3.Student.Where(s => s.StudentName.Equals("New name"));
-				context3.RemoveRange(stds);
-				context3.SaveChangesAsync().Wait();
-
-				// Show students
-				context3.Student
-					.Select(s => string.Concat(s.StudentId, ":", s.StudentName))
-					.ToList()
-					.ForEach(Console.WriteLine);
-			}
 		}
     }
 }

@@ -15,7 +15,7 @@ namespace DatabaseFirst.Models
         public string StandardName { get; set; }
         public string Description { get; set; }
 
-        public ICollection<Student> Student { get; set; }
-        public ICollection<Teacher> Teacher { get; set; }
+        public virtual ICollection<Student> Student { get; set; }
+        public virtual ICollection<Teacher> Teacher { get; set; }
     }
 }

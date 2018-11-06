@@ -14,7 +14,7 @@ namespace DatabaseFirst.Models
         public string CourseName { get; set; }
         public int? TeacherId { get; set; }
 
-        public Teacher Teacher { get; set; }
-        public ICollection<StudentCourse> StudentCourse { get; set; }
+        public virtual Teacher Teacher { get; set; }
+        public virtual ICollection<StudentCourse> StudentCourse { get; set; }
     }
 }

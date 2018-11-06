@@ -15,8 +15,8 @@ namespace DatabaseFirst.Models
         public int? StandardId { get; set; }
         public byte[] RowVersion { get; set; }
 
-        public Standard Standard { get; set; }
-        public StudentAddress StudentAddress { get; set; }
-        public ICollection<StudentCourse> StudentCourse { get; set; }
+        public virtual Standard Standard { get; set; }
+        public virtual StudentAddress StudentAddress { get; set; }
+        public virtual ICollection<StudentCourse> StudentCourse { get; set; }
     }
 }

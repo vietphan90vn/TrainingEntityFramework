@@ -11,6 +11,6 @@ namespace DatabaseFirst.Models
         public string City { get; set; }
         public string State { get; set; }
 
-        public Student Student { get; set; }
+        public virtual Student Student { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace DatabaseFirst.Models
         public int? StandardId { get; set; }
         public int? TeacherType { get; set; }
 
-        public Standard Standard { get; set; }
-        public ICollection<Course> Course { get; set; }
+        public virtual Standard Standard { get; set; }
+        public virtual ICollection<Course> Course { get; set; }
     }
 }
